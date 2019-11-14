@@ -5,7 +5,7 @@ This is a lightweight hosptial & limb damage resource. This was largely done as 
 ![Mythic Hospital Check-In](https://i.imgur.com/y8VSWkQ.jpg)
 ![Mythic Hospital Lay In Bed](https://i.imgur.com/Hh5OvTz.jpg)
 
-Dependencies :
+Dependencies:
 - [Mythic Notify](https://github.com/mythicrp/mythic_notify)
 - [Mythic Progress Bar](https://github.com/mythicrp/mythic_progbar)
 - [Pillbox Interior](https://forum.fivem.net/t/release-pillbox-hospital-by-jobscraft/209288)
