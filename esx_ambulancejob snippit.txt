@@ -1,0 +1,29 @@
+client/main.lua 
+[REPLACE]
+
+
+function RemoveItemsAfterRPDeath()
+	TriggerServerEvent('esx_ambulancejob:setDeathStatus', false)
+
+	Citizen.CreateThread(function()
+		DoScreenFadeOut(800)
+
+		while not IsScreenFadedOut() do
+			Citizen.Wait(10)
+		end
+
+		ESX.TriggerServerCallback('esx_ambulancejob:removeItemsAfterRPDeath', function()
+			local playerpos = GetEntityCoords( GetPlayerPed(-1) )
+				
+			ESX.SetPlayerData('lastPosition', playerpos)
+			ESX.SetPlayerData('loadout', {})
+			RespawnPed(PlayerPedId(), playerpos, Config.RespawnPoint.heading)
+
+			TriggerServerEvent('esx:updateLastPosition', playerpos)
+			TriggerServerEvent('mythic_hospital:server:RequestBed')
+			Citizen.Wait(10)
+			StopScreenEffect('DeathFailOut')
+			DoScreenFadeIn(800)
+		end)
+	end)
+end
