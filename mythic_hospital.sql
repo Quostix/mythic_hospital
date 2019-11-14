@@ -5,5 +5,6 @@ INSERT INTO `items` (name, label, `limit`) VALUES
 	('medkit','Medkit', 5),
 	('vicodin','Vicodin', 5),
 	('hydrocodone','Hydrocodone', 5),
-	('morphine','Morphine', 5)
+	('morphine','Morphine', 5),
+        ('adrenaline','Adrenaline', 5)
 ;
