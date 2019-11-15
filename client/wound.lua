@@ -489,7 +489,7 @@ AddEventHandler('mythic_hospital:client:UsePainKiller', function(tier)
         onPainKiller = 90 * tier
     end
 
-    exports['mythic_notify']:DoCustomHudText('inform', 'You feel the pain subside temporarily', 5000)
+    exports['mythic_notify']:SendAlert('inform', 'You feel the pain subside temporarily', 5000)
     ProcessRunStuff(PlayerPedId())
 end)
 
@@ -499,7 +499,7 @@ AddEventHandler('mythic_hospital:client:UseAdrenaline', function(tier)
         onDrugs = 180 * tier
     end
 
-    exports['mythic_notify']:DoCustomHudText('inform', 'You\'re Able To Ignore Your Body Failing', 5000)
+    exports['mythic_notify']:SendAlert('inform', 'You\'re Able To Ignore Your Body Failing', 5000)
     ProcessRunStuff(PlayerPedId())
 end)
 
@@ -526,7 +526,7 @@ Citizen.CreateThread(function()
 
                     if fadeOutTimer % Config.FadeOutTimer == 0 then
                         if blackoutTimer >= Config.BlackoutTimer then
-                            exports['mythic_notify']:DoCustomHudText('inform', 'You Suddenly Black Out', 5000)
+                            exports['mythic_notify']:SendAlert('inform', 'You Suddenly Black Out', 5000)
                             SetFlash(0, 0, 100, 7000, 100)
 
                             DoScreenFadeOut(500)
@@ -559,7 +559,7 @@ Citizen.CreateThread(function()
                         fadeOutTimer = fadeOutTimer + 1
                     end
 
-                    --exports['mythic_notify']:DoCustomHudText('inform', 'You Have ' .. Config.BleedingStates[isBleeding], 25000)
+                    --exports['mythic_notify']:SendAlert('inform', 'You Have ' .. Config.BleedingStates[isBleeding], 25000)
                     local bleedDamage = tonumber(isBleeding) * Config.BleedTickDamage
                     ApplyDamageToPed(player, bleedDamage, false)
                     playerHealth = playerHealth - bleedDamage
